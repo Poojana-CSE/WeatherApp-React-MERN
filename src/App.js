@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import './App.css';
 
 const App = () => {
   const [location, setLocation] = useState("");
@@ -94,17 +95,27 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h2>Weather App</h2>
-      <input 
-        value={location} 
-        type='text' 
-        placeholder='Enter Location' 
-        onChange={(e) => { setLocation(e.target.value); }} 
-      />
-      <button type='submit' onClick={search}>Search</button>
-      <button onClick={saveFavoriteLocation}>Save as Favorite</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="app-container">
+      <div className="header-container">
+        <h2 className="app-title">Weather App</h2>
+      </div>
+      
+      <div className="input-container">
+        <input 
+          className="location-input" 
+          value={location} 
+          type='text' 
+          placeholder='Enter Location' 
+          onChange={(e) => { setLocation(e.target.value); }} 
+        />
+        <div className="button-group">
+          <button className="search-button" type='submit' onClick={search}>Search</button>
+          <button className="save-favorite-button" onClick={saveFavoriteLocation}>Save as Favorite</button>
+        </div>
+      </div>
+
+      {error && <p className="error-message">{error}</p>}
+
       {weatherData && weatherData.main && weatherData.weather && (
         <div className="weatherDetails">
           <h2>Weather in {weatherData.name}, {weatherData.sys.country}</h2>
@@ -115,41 +126,47 @@ const App = () => {
             <strong>Temperature:</strong> {convertTemperature(weatherData.main.temp)}° {isCelsius ? 'C' : 'F'}
           </p>
           <p><strong>Clothing Suggestions:</strong> {getClothingSuggestions()}</p>
-          <button onClick={toggleTemperature}>
+          <button className="temperature-toggle-button" onClick={toggleTemperature}>
             Show in {isCelsius ? 'Fahrenheit' : 'Celsius'}
           </button>
         </div>
       )}
-      <div className="searchHistory">
-        <h3>Search History</h3>
-        {searchHistory.map((historyItem, index) => (
-          <button 
-            key={index} 
-            onClick={() => searchFromHistory(historyItem)}
-            style={{ margin: '5px' }}
-          >
-            {historyItem}
-          </button>
-        ))}
-        {searchHistory.length > 0 && (
-          <button onClick={clearSearchHistory} style={{ marginTop: '10px', backgroundColor: 'red', color: 'white' }}>
-            Clear History
-          </button>
-        )}
-      </div>
-      <div className="favoriteLocations">
-        <h3>Favorite Locations</h3>
-        {favoriteLocations.map((favorite, index) => (
-          <div key={index} style={{ marginBottom: '10px' }}>
-            <button onClick={() => searchFromHistory(favorite)}>{favorite}</button>
+
+      <div className="history-and-favorites">
+        <div className="searchHistory">
+          <h3>Search History</h3>
+          {searchHistory.map((historyItem, index) => (
             <button 
-              onClick={() => removeFavoriteLocation(favorite)} 
-              style={{ marginLeft: '10px', color: 'red' }}
+              key={index} 
+              className="history-item-button"
+              onClick={() => searchFromHistory(historyItem)}
             >
-              Remove
+              {historyItem}
             </button>
-          </div>
-        ))}
+          ))}
+          {searchHistory.length > 0 && (
+            <button className="clear-history-button" onClick={clearSearchHistory}>
+              Clear History
+            </button>
+          )}
+        </div>
+
+        <div className="favoriteLocations">
+          <h3>Favorite Locations</h3>
+          {favoriteLocations.map((favorite, index) => (
+            <div key={index} className="favorite-location-item">
+              <button className="favorite-location-button" onClick={() => searchFromHistory(favorite)}>
+                {favorite}
+              </button>
+              <button 
+                className="remove-favorite-button"
+                onClick={() => removeFavoriteLocation(favorite)}
+              >
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

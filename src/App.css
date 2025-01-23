@@ -1,38 +1,201 @@
-.App {
+body {
+  font-family: cursive;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(240, 240, 240);
+  color: rgb(34, 34, 34);
+  transition: background-color 0.3s ease;
+  background-image: url('./assests/Bgimage.jpg');
+  
+}
+
+.app-container {
+  margin: 0;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header-container {
+  background-color: rgb(91, 91, 91);
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.app-title {
+  color: rgb(255, 255, 255);
+  font-size: 32px;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.input-container {
+  margin-top: 70px;
+  width: 500px;
+  height: 250px;
+  background: rgb(51, 51, 51);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.location-input {
+  padding: 15px;
+  font-size: 18px;
+  width: 400px;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-left: 40px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.search-button, .save-favorite-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  background-color: rgb(200, 200, 200);
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 48%;
+}
+
+.search-button:hover, .save-favorite-button:hover {
+  background-color: rgb(255,255,255);
+}
+
+.error-message {
   color: white;
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.weatherDetails {
+  background-color: rgb(91, 91, 91);
+  padding: 25px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weatherDetails h2 {
+  font-size: 28px;
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+}
+
+.weatherDetails p {
+  color: rgb(211, 211, 211);
+  font-size: 18px;
+}
+
+.temperature-toggle-button {
+  background-color: rgb(0, 123, 255);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.temperature-toggle-button:hover {
+  background-color: rgb(0, 102, 204);
+}
+
+.history-and-favorites {
+  margin-top: 50px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.searchHistory, .favoriteLocations {
+  background: rgb(51, 51, 51);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.searchHistory h3, .favoriteLocations h3 {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.history-item-button, .favorite-location-button {
+  background: rgb(0, 123, 255);
+  color: white;
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.history-item-button:hover, .favorite-location-button:hover {
+  background-color: rgb(0, 102, 204);
+}
+
+.clear-history-button {
+  background-color: rgb(255, 69, 0);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.clear-history-button:hover {
+  background-color: rgb(204, 0, 0);
+}
+
+.favorite-location-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.remove-favorite-button {
+  background-color: rgb(255, 0, 0);
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-favorite-button:hover {
+  background-color: rgb(204, 0, 0);
 }
