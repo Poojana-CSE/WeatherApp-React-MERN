@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/WeatherApp-React-MERN/static/css/main.3af053b8.css",
+    "main.js": "/WeatherApp-React-MERN/static/js/main.f93d9e2f.js",
+    "static/media/Bgimage.jpg": "/WeatherApp-React-MERN/static/media/Bgimage.ee236021a305326f9d42.jpg",
+    "index.html": "/WeatherApp-React-MERN/index.html",
+    "main.3af053b8.css.map": "/WeatherApp-React-MERN/static/css/main.3af053b8.css.map",
+    "main.f93d9e2f.js.map": "/WeatherApp-React-MERN/static/js/main.f93d9e2f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3af053b8.css",
+    "static/js/main.f93d9e2f.js"
+  ]
+}
